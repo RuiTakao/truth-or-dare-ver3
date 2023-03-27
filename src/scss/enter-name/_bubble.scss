@@ -1,0 +1,106 @@
+.enter-name__bubble {
+  width: 100%;
+  height: 100%;
+
+  &.hidden {
+    opacity: 0;
+  }
+
+  &.fade-out {
+    animation: enter-name__bubble-fade-out 1s forwards;
+  }
+
+  &.fade-in {
+    animation: enter-name__bubble-fade-in 1s forwards;
+  }
+}
+
+.enter-name__bubble-moving {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: enter-name__bubble-moving 2s infinite;
+}
+
+.enter-name__bubble-body {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 16%), inset 0 1px 6px rgba(0, 0, 0, 16%);
+  z-index: 3;
+}
+
+.enter-name__bubble-arrow {
+  position: absolute;
+  top: 66px;
+  left: 75%;
+  border-top: 20px solid transparent;
+  border-left: 25px solid #fff;
+  border-bottom: 40px solid transparent;
+  transform: rotate(6deg);
+  z-index: 4;
+}
+
+.enter-name__bubble-arrow-shadow {
+  position: absolute;
+  top: 71px;
+  left: 228px;
+  border-top: 20px solid transparent;
+  border-left: 25px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 40px solid transparent;
+  filter: blur(3px);
+  transform: rotate(6deg);
+  z-index: 1;
+}
+
+.enter-name__bubble-message {
+  position: absolute;
+  width: 100%;
+  top: 12.5%;
+  text-align: center;
+  color: rgb(187, 130, 130);
+  font-weight: bold;
+  z-index: 4;
+
+  &.two-line {
+    top: 23%;
+  }
+
+  &.three-line {
+    top: 12.5%;
+  }
+}
+
+@keyframes enter-name__bubble-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes enter-name__bubble-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes enter-name__bubble-moving {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-4px, -4px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}

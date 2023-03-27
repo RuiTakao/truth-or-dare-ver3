@@ -1,0 +1,62 @@
+.choose-card__card {
+  
+  &.slide-in__first-row {
+    animation: choose-card__card-slide-in__first-row 0.5s forwards;
+  }
+
+  &.slide-in__second-row {
+    animation: choose-card__card-slide-in__second-row 0.5s forwards;
+  }
+
+  &.slide-in__third-row {
+    animation: choose-card__card-slide-in__third-row 0.5s forwards;
+  }
+
+  &.slide-in__fourth-row {
+    animation: choose-card__card-slide-in__fourth-row 0.5s forwards;
+  }
+}
+
+@keyframes choose-card__card-slide-in__first-row {
+  from {
+    transform: translateX(-90px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes choose-card__card-slide-in__second-row {
+  from {
+    transform: translateX(-180px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes choose-card__card-slide-in__third-row {
+  from {
+    transform: translateX(-270px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes choose-card__card-slide-in__fourth-row {
+  from {
+    transform: translateX(-360px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,29 @@
+.choose-card__card.check {
+  background: #808080;
+  cursor: default;
+
+  .check-mark {
+    position: absolute;
+    top: 36%;
+    left: 53%;
+    width: 32px;
+    height: 54px;
+    background: transparent;
+    border-right: 12px solid orange;
+    border-bottom: 12px solid orange;
+    transform: translate(-50%, -50%) rotateY(0) rotateZ(40deg);
+  }
+
+  .name-front-side {
+    position: absolute;
+    bottom: 6px;
+    width: 100%;
+    text-align: center;
+    color: #fd7e00;
+    font-weight: bold;
+  }
+
+  .name-back-side {
+    opacity: 0;
+  }
+}

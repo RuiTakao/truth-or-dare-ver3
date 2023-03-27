@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../dist/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <div id="choose-card-frame" class="choose-card-frame">
+        <div id="bubble-frame" class="choose-card__bubble-frame">
+          <div id="bubble" class="choose-card__bubble">
+            <div class="choose-card__bubble-body"></div>
+            <div class="choose-card__bubble-arrow"></div>
+            <div class="choose-card__bubble-arrow-shadow"></div>
+            <p id="bubble-message" class="choose-card__bubble-message" style="display: block">
+              TestAさんのターンです<br>カードを選んでください
+            </p>
+            <div id="button-list-frame" class="choose-card__bubble-button-frame" style="display: none">
+              <div class="choose-card__bubble-button">
+                <p class="choose-card__bubble-button-message">
+                  これにしますか？
+                </p>
+                <div class="choose-card__bubble-button-list">
+                  <button id="bubble-button-yes" class="choose-card__bubble-button-yes">はい</button>
+                  <button id="bubble-button-no" class="choose-card__bubble-button-no">いいえ</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="card-list-frame" class="choose-card__card-list-frame">
+          <ul id="card-list" class="choose-card__card-list">
+            <li id="card1" class="choose-card__card"></li>
+            <li id="card2" class="choose-card__card"></li>
+            <li id="card3" class="choose-card__card"></li>
+            <li id="card4" class="choose-card__card"></li>
+            <li id="card5" class="choose-card__card"></li>
+            <li id="card6" class="choose-card__card"></li>
+            <li id="card7" class="choose-card__card"></li>
+            <li id="card8" class="choose-card__card"></li>
+            <li id="card9" class="choose-card__card"></li>
+            <li id="card10" class="choose-card__card"></li>
+            <li id="card11" class="choose-card__card"></li>
+            <li id="card12" class="choose-card__card"></li>
+            <li id="card13" class="choose-card__card"></li>
+          </ul>
+        </div>
+        <div class="choose-card__announce-label" style="opacity: 1;">
+          <p class="choose-card__announce-message" style="opacity: 1;">カードを選んでください</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const cardList = document.querySelectorAll('.choose-card__card')
+      const bubbleMessage = document.querySelector('.choose-card__bubble-message')
+      const bubbleButton = document.querySelector('.choose-card__bubble-button-frame')
+      cardList.forEach(target => {
+        target.addEventListener('click', () => {
+          bubbleMessage.style.display = "none"
+          bubbleButton.style.display = "block"
+        })
+      })
+    </script>
+  </body>
+</html>

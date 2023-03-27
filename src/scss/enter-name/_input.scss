@@ -1,0 +1,65 @@
+.enter-name__input {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 340px;
+  height: 54px;
+  font-size: 24px;
+  background: #fff;
+  border: 2px solid rgb(185, 246, 246);
+  border-radius: 8px;
+  padding-left: 8px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3), inset 0 2px 6px rgba(0, 0, 0, 16%);
+
+  &.hidden {
+    opacity: 0;
+  }
+
+  &.state {
+    transform: translateX(60%);
+  }
+
+  &.fade-in {
+    animation: enter-name__input-fade-in 2s forwards;
+  }
+
+  &.slide-in {
+    animation: enter-name__input-slide-in 1s linear forwards;
+  }
+
+  &.slide-out {
+    animation: enter-name__input-slide-out 1s linear forwards;
+  }
+}
+
+@keyframes enter-name__input-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes enter-name__input-slide-in {
+  from {
+    transform: translateX(60%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+}
+
+@keyframes enter-name__input-slide-out {
+  from {
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-160%);
+    opacity: 0;
+  }
+}

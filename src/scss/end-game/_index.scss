@@ -1,0 +1,43 @@
+.end-game-frame {
+  margin-top: 265px;
+}
+
+.end-game__button-frame {
+  margin-top: 32px;
+}
+
+.end-game__title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.end-game__button-list {
+  width: 280px;
+  margin: 0 auto;
+}
+
+.end-game__return-choose-card-button {
+  width: 100%;
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  padding: 12px;
+  border-radius: 6px;
+  background: #fd7e00;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3),
+    inset 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.end-game__return-enter-name-button {
+  margin-top: 32px;
+  width: 100%;
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  padding: 12px;
+  border-radius: 6px;
+  background: #fd7e00;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3),
+    inset 0 3px 6px rgba(0, 0, 0, 0.16);
+}

@@ -1,0 +1,163 @@
+.confirm-demand-frame {
+    margin-top: 295px;
+    width: 100%;
+  
+    &.fade-out {
+      animation: confirm-demand__frame-fade-out 0.5s forwards;
+    }
+  }
+  
+  .confirm-demand__button-frame {
+    margin-top: 24px;
+  }
+  
+  .confirm-demand__message {
+    text-align: center;
+    font-weight: bold;
+    color: #2b2b2b;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 16%);
+  }
+  
+  .confirm-demand__one-line-message {
+    font-size: 20px;
+  
+    &.hidden {
+      opacity: 0;
+    }
+  
+    &.fade-in {
+      animation: confirm-demand__message-fade-in 1s forwards;
+    }
+  }
+  
+  .confirm-demand__two-line-message {
+    margin-top: 8px;
+  
+    .truth {
+      font-size: 20px;
+      color: #f47340;
+    }
+  
+    .dare {
+      font-size: 20px;
+      color: #7972cf;
+    }
+  
+    &.hidden {
+      opacity: 0;
+    }
+  
+    &.fade-in {
+      animation: confirm-demand__message-fade-in 1s forwards;
+    }
+  }
+  
+  .confirm-demand__button {
+    width: 250px;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 20px;
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 16%), inset 0 3px 6px rgba(0, 0, 0, 16%);
+    margin: 0 auto;
+    display: block;
+  
+    &.truth {
+      background: #f47340;
+  
+      &:hover {
+        background: #fb8e64;
+      }
+  
+      &:active {
+        transform: translate(2px, 2px);
+        box-shadow: 3px 3px 4px rgba(0, 0, 0, 16%),
+          inset 0 3px 6px rgba(0, 0, 0, 16%);
+      }
+  
+      &.disable {
+        background: #d17b5a;
+        cursor: default;
+  
+        &:hover {
+          background: #d17b5a;
+        }
+  
+        &:active {
+          transform: translate(0, 0);
+          box-shadow: 5px 5px 6px rgba(0, 0, 0, 16%),
+            inset 0 3px 6px rgba(0, 0, 0, 16%);
+        }
+      }
+    }
+  
+    &.dare {
+      background: #7972cf;
+  
+      &:hover {
+        background: #968fe3;
+      }
+  
+      &:active {
+        transform: translate(2px, 2px);
+        box-shadow: 3px 3px 4px rgba(0, 0, 0, 16%),
+          inset 0 3px 6px rgba(0, 0, 0, 16%);
+      }
+  
+      &.disable {
+        background: #646092;
+        cursor: default;
+  
+        &:hover {
+          background: #646092;
+        }
+  
+        &:active {
+          transform: translate(0, 0);
+          box-shadow: 5px 5px 6px rgba(0, 0, 0, 16%),
+            inset 0 3px 6px rgba(0, 0, 0, 16%);
+        }
+      }
+    }
+  
+    &.hidden {
+      opacity: 0;
+    }
+  
+    &.fade-in {
+      animation: confirm-demand__button-fade-in 1.5s forwards;
+    }
+  }
+  
+  @keyframes confirm-demand__message-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes confirm-demand__button-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes confirm-demand__frame-fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
