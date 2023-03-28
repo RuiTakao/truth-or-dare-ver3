@@ -1,3 +1,5 @@
+import { Object } from "../../../../interface/Object";
+
 export class Bubble {
   private hostElement: HTMLDivElement;
   private bubble: HTMLDivElement;
@@ -66,7 +68,7 @@ export class Bubble {
     );
   }
 
-  attach(name: string) {
+  attach(name: string): Promise<void> {
     return new Promise((resolve) => {
       this.message.innerText = `${name}さんのターンです\nカードを選んでください`;
       this.hostElement.appendChild(this.bubble);

@@ -1,4 +1,6 @@
-export class Frame {
+import { FrameObject } from "../../../../interface/FrameObject";
+
+export class Frame implements FrameObject {
   private hostElement: HTMLDivElement;
   private frame: HTMLDivElement;
   private bubbleFrame: HTMLDivElement;

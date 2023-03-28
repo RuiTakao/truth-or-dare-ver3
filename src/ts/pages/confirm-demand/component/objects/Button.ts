@@ -1,6 +1,6 @@
 import { truthDare } from "../../../../strage/truthDare";
 
-export class Button {
+export class Button implements Object {
   private hostElement: HTMLDivElement;
   private button: HTMLButtonElement;
 

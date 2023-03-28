@@ -1,6 +1,7 @@
+import { Object } from "../../../../interface/Object";
 import { loseUser } from "../../../../strage/user";
 
-export class Message {
+export class Message implements Object {
   private hostElement: HTMLDivElement;
   private message: HTMLDivElement;
   private oneLineMessage: HTMLParagraphElement;
@@ -36,7 +37,7 @@ export class Message {
     }
   }
 
-  attach() {
+  attach(): Promise<void> {
     return new Promise((resolve) => {
       this.hostElement.appendChild(this.message);
 

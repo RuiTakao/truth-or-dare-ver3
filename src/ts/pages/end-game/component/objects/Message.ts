@@ -32,7 +32,7 @@ export class Message implements Object {
         { once: true }
       );
 
-      setTimeout(() => resolve(fadeIn), 750);
+      setTimeout(() => resolve(fadeIn), 500);
     });
   }
 }

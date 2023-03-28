@@ -1,4 +1,6 @@
-export class Bubble {
+import { Object } from "../../../../interface/Object";
+
+export class Bubble implements Object {
   private hostElement: HTMLDivElement;
   private bubble: HTMLDivElement;
   private movingBubble: HTMLDivElement;

@@ -1,4 +1,6 @@
-export class Announce {
+import { Object } from "../../../../interface/Object";
+
+export class Announce implements Object {
   private hostElement: HTMLDivElement;
   private label: HTMLDivElement;
   private firstMessage: HTMLParagraphElement;

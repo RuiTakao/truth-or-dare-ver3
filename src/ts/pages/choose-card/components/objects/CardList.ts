@@ -1,6 +1,6 @@
 import { firstUser, secondUser } from "../../../../strage/user";
 
-export class CardList {
+export class CardList implements Object {
   private hostElement: HTMLDivElement;
   private cardList: HTMLUListElement;
 

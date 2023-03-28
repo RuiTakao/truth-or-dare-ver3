@@ -39,8 +39,16 @@ export class Button implements Object {
   attach(): Promise<void> {
     return new Promise((resolve) => {
       this.hostElement.appendChild(this.buttonList);
-      const fadeIn: void = this.buttonList.classList.remove("hidden");
-      resolve(fadeIn);
+      const fadeIn: void = this.buttonList.classList.add("fade-in");
+      this.buttonList.addEventListener(
+        "animationend",
+        () => {
+          this.buttonList.classList.remove("hidden");
+          this.buttonList.classList.remove("fade-in");
+        },
+        { once: true }
+      );
+      setTimeout(() => resolve(fadeIn));
     });
   }
 }

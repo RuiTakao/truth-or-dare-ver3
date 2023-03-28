@@ -1,7 +1,8 @@
+import { Object } from "../../../../interface/Object";
 import { demand } from "../../../../strage/Demand";
 import { truthDare } from "../../../../strage/truthDare";
 
-export class Select {
+export class Select implements Object {
   private hostElement: HTMLDivElement;
   private selectBox: HTMLDivElement;
   private select: HTMLUListElement;

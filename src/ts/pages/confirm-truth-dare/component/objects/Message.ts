@@ -1,7 +1,8 @@
+import { Object } from "../../../../interface/Object";
 import { truthDare } from "../../../../strage/truthDare";
 import { winUser } from "../../../../strage/user";
 
-export class Message {
+export class Message implements Object {
   private hostElement: HTMLDivElement;
   private message: HTMLDivElement;
   private oneLineMessage: HTMLParagraphElement;

@@ -10,7 +10,6 @@ export class EndGame {
     const message = new Message(frame.getMessageFrame);
     const button = new Button(frame.getButtonFrame);
     frame.attach();
-    console.log('u')
     message
       .attach()
       .then(() => button.attach())

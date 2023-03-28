@@ -6,6 +6,16 @@
   margin-top: 32px;
 }
 
+.end-game__message {
+  &.hidden {
+    opacity: 0;
+  }
+
+  &.fade-in {
+    animation: end-game__message-fade-in 1s forwards;
+  }
+}
+
 .end-game__title {
   font-size: 32px;
   font-weight: bold;
@@ -15,6 +25,10 @@
 .end-game__button-list {
   width: 280px;
   margin: 0 auto;
+
+  &.fade-in {
+    animation: end-game__button-fade-in 1s forwards;
+  }
 }
 
 .end-game__return-choose-card-button {
@@ -27,6 +41,12 @@
   background: #fd7e00;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3),
     inset 0 3px 6px rgba(0, 0, 0, 0.16);
+
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 16%),
+      inset 0 3px 6px rgba(0, 0, 0, 16%);
+  }
 }
 
 .end-game__return-enter-name-button {
@@ -40,4 +60,30 @@
   background: #fd7e00;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3),
     inset 0 3px 6px rgba(0, 0, 0, 0.16);
+
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 16%),
+      inset 0 3px 6px rgba(0, 0, 0, 16%);
+  }
+}
+
+@keyframes end-game__message-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes end-game__button-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

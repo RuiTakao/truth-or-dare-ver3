@@ -1,4 +1,6 @@
-export class Button {
+import { Object } from "../../../../interface/Object";
+
+export class Button implements Object {
   private hostElement: HTMLDivElement;
   private button: HTMLButtonElement;
 

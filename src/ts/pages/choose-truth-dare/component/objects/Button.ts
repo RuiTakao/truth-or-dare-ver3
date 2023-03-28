@@ -1,4 +1,6 @@
-export class Button {
+import { Object } from "../../../../interface/Object";
+
+export class Button implements Object {
   private hostElement: HTMLDivElement;
   private buttonList: HTMLDivElement;
   private truthButton: HTMLButtonElement;
@@ -33,7 +35,7 @@ export class Button {
     this.buttonList.appendChild(this.dareButton);
   }
 
-  attach() {
+  attach(): Promise<void> {
     return new Promise((resolve) => {
       this.hostElement.appendChild(this.buttonList);
       const fadeIn = this.buttonList.classList.add("fade-in");
