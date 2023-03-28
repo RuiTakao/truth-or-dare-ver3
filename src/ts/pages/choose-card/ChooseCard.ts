@@ -15,14 +15,14 @@ export class ChooseCard {
         const firstUserName = firstUser.getName;
         new ShuffleUser();
         const frame: Frame = new Frame(hostElement);
-        const bubble: Bubble = new Bubble(frame.getBubbleFrame);
+        const bubble: Bubble = new Bubble(frame.getBubbleFrame, firstUserName);
         const cardList: CardList = new CardList(frame.getCardListFrame);
         const announce: Announce = new Announce(frame.getFrame, firstUserName);
         frame.attach();
         cardList
           .attach()
           .then(() => announce.attach())
-          .then(() => bubble.attach(firstUserName))
+          .then(() => bubble.attach())
           .then(() => {
             cardList.enable();
             const clickCard: ClickCard = new ClickCard(cardList, bubble);

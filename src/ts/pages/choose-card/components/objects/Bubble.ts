@@ -1,12 +1,13 @@
 import { Object } from "../../../../interface/Object";
 
-export class Bubble {
+export class Bubble implements Object {
   private hostElement: HTMLDivElement;
   private bubble: HTMLDivElement;
   private bubbleButton: HTMLDivElement;
   private message: HTMLParagraphElement;
   private yesButton: HTMLButtonElement;
   private noButton: HTMLButtonElement;
+  private userName: string
 
   get getYesButton() {
     return this.yesButton;
@@ -16,7 +17,8 @@ export class Bubble {
     return this.noButton;
   }
 
-  constructor(hostElement: HTMLDivElement) {
+  constructor(hostElement: HTMLDivElement, userName: string) {
+    this.userName = userName
     this.hostElement = hostElement;
 
     this.bubble = document.createElement("div");
@@ -68,9 +70,9 @@ export class Bubble {
     );
   }
 
-  attach(name: string): Promise<void> {
+  attach(): Promise<void> {
     return new Promise((resolve) => {
-      this.message.innerText = `${name}さんのターンです\nカードを選んでください`;
+      this.message.innerText = `${this.userName}さんのターンです\nカードを選んでください`;
       this.hostElement.appendChild(this.bubble);
       const fadeIn = this.bubble.classList.add("fade-in");
       this.bubble.addEventListener(

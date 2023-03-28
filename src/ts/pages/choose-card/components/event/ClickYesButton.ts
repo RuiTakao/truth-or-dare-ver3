@@ -32,12 +32,12 @@ export class ClickYesButton {
               cardList.disable();
               beforeBubble.destroy();
               clickCard.removeConfigure();
-              const bubble = new Bubble(frame.getBubbleFrame);
+              const bubble = new Bubble(frame.getBubbleFrame, secondUserName);
               const announce = new Announce(frame.getFrame, secondUserName);
 
               announce
                 .attach()
-                .then(() => bubble.attach(secondUserName))
+                .then(() => bubble.attach())
                 .then(() => {
                   cardList.enable();
                   const clickCard = new ClickCard(cardList, bubble);
