@@ -36,8 +36,8 @@ export class Button implements Object {
     );
   }
 
-  attach(): Promise<void> {
-    return new Promise((resolve) => {
+  attach = (): Promise<void> =>
+    new Promise((resolve) => {
       this.hostElement.appendChild(this.buttonList);
       const fadeIn: void = this.buttonList.classList.add("fade-in");
       this.buttonList.addEventListener(
@@ -50,5 +50,4 @@ export class Button implements Object {
       );
       setTimeout(() => resolve(fadeIn));
     });
-  }
 }

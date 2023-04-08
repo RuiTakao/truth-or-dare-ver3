@@ -16,13 +16,12 @@ export class ClickCard {
     this.configure();
   }
 
-  configure(): void {
-    for (let i = 0; i < this.target.length; i++) {
+  configure = (): void => {
+    for (let i = 0; i < this.target.length; i++)
       this.target[i].addEventListener("click", this.targetEvent[i]);
-    }
-  }
+  };
 
-  clickHandler(target: HTMLLIElement): void {
+  clickHandler = (target: HTMLLIElement): void => {
     if (
       !target.classList.contains("mark") &&
       !target.classList.contains("check")
@@ -30,19 +29,17 @@ export class ClickCard {
       this.cardList.addMark(target);
       this.bubble.openBubbleButton();
     }
-  }
+  };
 
-  removeConfigure(): void {
-    for (let i = 0; i < this.target.length; i++) {
+  removeConfigure = (): void => {
+    for (let i = 0; i < this.target.length; i++)
       this.target[i].removeEventListener("click", this.targetEvent[i]);
-    }
-  }
+  };
 
-  private clickHandlerList(): (() => void)[] {
+  private clickHandlerList = (): (() => void)[] => {
     const array: (() => void)[] = [];
-    for (let i = 0; i < this.target.length; i++) {
+    for (let i = 0; i < this.target.length; i++)
       array.push(this.clickHandler.bind(this, this.target[i]));
-    }
     return array;
-  }
+  };
 }

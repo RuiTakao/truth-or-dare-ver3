@@ -1,4 +1,4 @@
-import { hostElement } from "../../../../app";
+import { hostElement as parentElement } from "../../../../app";
 import { FrameObject } from "../../../../interface/FrameObject";
 
 export class Frame implements FrameObject {
@@ -33,17 +33,14 @@ export class Frame implements FrameObject {
 
     this.frame.appendChild(this.messageFrame);
     this.frame.appendChild(this.buttonFrame);
-
-    console.log(this.hostElement.parentElement);
   }
 
-  attach() {
+  attach = (): void => {
     this.hostElement.appendChild(this.frame);
-  }
+  };
 
-  destroy() {
-    while (hostElement.firstChild) {
-      hostElement.removeChild(hostElement.firstChild);
-    }
-  }
+  destroy = (): void => {
+    while (parentElement.firstChild)
+      parentElement.removeChild(parentElement.firstChild);
+  };
 }

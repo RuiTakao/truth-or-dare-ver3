@@ -18,7 +18,7 @@ export class ClickButton {
 
     const clickHandler: () => void = () => {
       if (beforeInput.getInput.value.length > 1) {
-        firstUser.setName(beforeInput.getInput.value)
+        firstUser.setName(beforeInput.getInput.value);
         button.disable();
         beforeInput.disable();
         button.getButton.removeEventListener("click", clickHandler);

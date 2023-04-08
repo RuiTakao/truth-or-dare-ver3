@@ -25,7 +25,7 @@ export class Announce implements Object {
     this.label.append(this.firstMessage, this.secondMessage);
   }
 
-  attach(): Promise<void> {
+  attach = (): Promise<void> => {
     const fadeInLabel: () => Promise<void> = () =>
       new Promise((resolve) => {
         const fadeIn: void = this.label.classList.add("fade-in");

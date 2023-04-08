@@ -22,7 +22,7 @@ export class CardList implements Object {
     }
   }
 
-  attach() {
+  attach = () => {
     const target: NodeListOf<HTMLLIElement> =
       this.cardList.querySelectorAll("li");
 
@@ -67,38 +67,32 @@ export class CardList implements Object {
         .then(() => slideIn(target[8], "slide-in__first-row"));
       setTimeout(() => resolve(slideAll), 2000);
     });
-  }
+  };
 
-  disable() {
+  disable = (): void =>
+    this.cardList
+      .querySelectorAll("li")
+      .forEach((target) => target.classList.add("disable"));
+
+  enable = (): void =>
+    this.cardList
+      .querySelectorAll("li")
+      .forEach((target) => target.classList.remove("disable"));
+
+  removeMark = (): void => {
     this.cardList.querySelectorAll("li").forEach((target) => {
-      target.classList.add("disable");
+      if (target.classList.contains("mark")) target.classList.remove("mark");
     });
-  }
+  };
 
-  enable() {
+  addMark = (target: HTMLLIElement): void => {
     this.cardList.querySelectorAll("li").forEach((target) => {
-      target.classList.remove("disable");
-    });
-  }
-
-  removeMark() {
-    this.cardList.querySelectorAll("li").forEach((target) => {
-      if (target.classList.contains("mark")) {
-        target.classList.remove("mark");
-      }
-    });
-  }
-
-  addMark(target: HTMLLIElement) {
-    this.cardList.querySelectorAll("li").forEach((target) => {
-      if (target.classList.contains("mark")) {
-        target.classList.remove("mark");
-      }
+      if (target.classList.contains("mark")) target.classList.remove("mark");
     });
     target.classList.add("mark");
-  }
+  };
 
-  addCheck(target: HTMLLIElement, name: string): void {
+  addCheck = (target: HTMLLIElement, name: string): void => {
     target.classList.add("check");
 
     const checkMark = document.createElement("div");
@@ -115,7 +109,7 @@ export class CardList implements Object {
     target.append(checkMark, nameFrontSide, nameBackSide);
 
     target.classList.remove("mark");
-  }
+  };
 
   turn() {
     try {
@@ -140,21 +134,16 @@ export class CardList implements Object {
           });
         };
 
-        return new Promise((resolve) => {
+        return new Promise((resolve) =>
           resolve(
-            turnCard(firstUserChooseCard).then(() => {
-              turnCard(secondUserChooseCard);
-              console.log(firstUser)
-            })
-          );
-        });
-      } else {
-        throw new Error("カードが選択されていません");
-      }
+            turnCard(firstUserChooseCard).then(() =>
+              turnCard(secondUserChooseCard)
+            )
+          )
+        );
+      } else throw new Error("カードが選択されていません");
     } catch (e) {
-      return new Promise(() => {
-        console.error("エラー：", e);
-      });
+      return new Promise(() => console.error("エラー：", e));
     }
   }
 }

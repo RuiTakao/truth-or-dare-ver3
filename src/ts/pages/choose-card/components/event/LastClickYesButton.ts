@@ -31,9 +31,7 @@ export class LastClickYesButton {
               new SetNumber(cardList.getCardList);
               new Juge();
               cardList.turn().then(() => new MakeLayer(hostElement));
-            } else {
-              throw new Error("名前が設定されていません");
-            }
+            } else throw new Error("名前が設定されていません");
           } catch (e) {
             console.error("エラー：", e);
           }

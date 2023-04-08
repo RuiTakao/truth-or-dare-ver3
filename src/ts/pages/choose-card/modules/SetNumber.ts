@@ -7,7 +7,7 @@ export class SetNumber {
     this.setNumber();
   }
 
-  private setNumber() {
+  private setNumber = (): void => {
     this.target.forEach((target, index) => {
       const num = document.createElement("p");
       num.className = "num";
@@ -16,14 +16,12 @@ export class SetNumber {
       target.appendChild(num);
       target.value = this.numbers[index];
     });
-  }
+  };
 
-  private createNumber() {
+  private createNumber = (): number[] => {
     const numbers: number[] = [];
-    for (let i = 1; i <= this.target.length; i++) {
-      numbers.push(i);
-    }
+    for (let i = 1; i <= this.target.length; i++) numbers.push(i);
     numbers.sort(() => 0.5 - Math.random());
     return numbers;
-  }
+  };
 }

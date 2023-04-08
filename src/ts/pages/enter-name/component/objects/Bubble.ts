@@ -36,8 +36,8 @@ export class Bubble implements Object {
     this.bubble.appendChild(this.movingBubble);
   }
 
-  attach(): Promise<void> {
-    return new Promise((resolve) => {
+  attach = (): Promise<void> =>
+    new Promise((resolve) => {
       this.hostElement.appendChild(this.bubble);
       this.message.innerText =
         "対戦者名が表示されるよ\n1人目のプレーヤー名を入力して\nクリックしてね！";
@@ -53,10 +53,9 @@ export class Bubble implements Object {
       );
       setTimeout(() => resolve(fadeIn));
     });
-  }
 
-  change(): Promise<void> {
-    return new Promise((resolve) => {
+  change = (): Promise<void> =>
+    new Promise((resolve) => {
       const fadeOut: void = this.bubble.classList.add("fade-out");
       this.bubble.addEventListener(
         "animationend",
@@ -79,12 +78,10 @@ export class Bubble implements Object {
       );
       resolve(fadeOut);
     });
-  }
 
-  fadeOut(): Promise<void> {
-    return new Promise((resolve) => {
+  fadeOut = (): Promise<void> =>
+    new Promise((resolve) => {
       const fadeOut: void = this.bubble.classList.add("fade-out");
       resolve(fadeOut);
     });
-  }
 }

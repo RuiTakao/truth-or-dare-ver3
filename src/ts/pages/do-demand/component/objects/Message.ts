@@ -38,22 +38,18 @@ export class Message implements Object {
           default:
             throw new Error("無効な値が指定されました");
         }
-      } else {
-        throw new Error("無効な値が指定されました");
-      }
+      } else throw new Error("無効な値が指定されました");
 
-      if (loseUser.getName !== null) {
+      if (loseUser.getName !== null)
         this.oneLineMessage.innerHTML = `${loseUser.getName}さん`;
-      } else {
-        throw new Error("名前が設定されていません");
-      }
+      else throw new Error("名前が設定されていません");
     } catch (e) {
       console.error("エラー:", e);
     }
   }
 
-  attach(): Promise<void> {
-    return new Promise((resolve) => {
+  attach = (): Promise<void> =>
+    new Promise((resolve) => {
       this.hostElement.appendChild(this.message);
 
       new Promise((resolve) => {
@@ -80,5 +76,4 @@ export class Message implements Object {
         setTimeout(() => resolve(fadeIn), 750);
       });
     });
-  }
 }

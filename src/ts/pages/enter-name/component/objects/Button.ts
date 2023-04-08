@@ -17,8 +17,8 @@ export class Button implements Object {
     this.button.classList.add("disable");
   }
 
-  attach(): Promise<void> {
-    return new Promise((resolve) => {
+  attach = (): Promise<void> =>
+    new Promise((resolve) => {
       this.hostElement.appendChild(this.button);
       const fadeIn = this.button.classList.add("fade-in");
       this.button.addEventListener("animationend", () => {
@@ -27,20 +27,14 @@ export class Button implements Object {
       });
       setTimeout(() => resolve(fadeIn), 200);
     });
-  }
 
-  fadeOut(): Promise<void> {
-    return new Promise((resolve) => {
+  fadeOut = (): Promise<void> =>
+    new Promise((resolve) => {
       const fadeOut = this.button.classList.add("fade-out");
       resolve(fadeOut);
     });
-  }
 
-  disable(): void {
-    this.button.classList.add("disable");
-  }
+  disable = (): void => this.button.classList.add("disable");
 
-  enable(): void {
-    this.button.classList.remove("disable");
-  }
+  enable = (): void => this.button.classList.remove("disable");
 }

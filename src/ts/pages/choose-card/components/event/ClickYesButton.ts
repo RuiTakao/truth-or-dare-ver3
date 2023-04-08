@@ -49,9 +49,7 @@ export class ClickYesButton {
                     hostElement
                   );
                 });
-            } else {
-              throw new Error("名前が設定されていません");
-            }
+            } else throw new Error("名前が設定されていません");
           } catch (e) {
             console.error("エラー:", e);
           }

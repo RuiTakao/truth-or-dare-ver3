@@ -18,8 +18,8 @@ export class Message implements Object {
     this.message.appendChild(this.title);
   }
 
-  attach(): Promise<void> {
-    return new Promise((resolve) => {
+  attach = (): Promise<void> =>
+    new Promise((resolve) => {
       this.hostElement.appendChild(this.message);
 
       const fadeIn = this.message.classList.add("fade-in");
@@ -34,5 +34,4 @@ export class Message implements Object {
 
       setTimeout(() => resolve(fadeIn), 500);
     });
-  }
 }

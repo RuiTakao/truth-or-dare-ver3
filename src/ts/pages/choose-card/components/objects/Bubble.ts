@@ -7,7 +7,7 @@ export class Bubble implements Object {
   private message: HTMLParagraphElement;
   private yesButton: HTMLButtonElement;
   private noButton: HTMLButtonElement;
-  private userName: string
+  private userName: string;
 
   get getYesButton() {
     return this.yesButton;
@@ -18,7 +18,7 @@ export class Bubble implements Object {
   }
 
   constructor(hostElement: HTMLDivElement, userName: string) {
-    this.userName = userName
+    this.userName = userName;
     this.hostElement = hostElement;
 
     this.bubble = document.createElement("div");
@@ -70,7 +70,7 @@ export class Bubble implements Object {
     );
   }
 
-  attach(): Promise<void> {
+  attach = (): Promise<void> => {
     return new Promise((resolve) => {
       this.message.innerText = `${this.userName}さんのターンです\nカードを選んでください`;
       this.hostElement.appendChild(this.bubble);
@@ -85,29 +85,27 @@ export class Bubble implements Object {
       );
       setTimeout(() => resolve(fadeIn));
     });
-  }
+  };
 
-  openBubbleButton() {
+  openBubbleButton = (): void => {
     this.vibe();
     if (this.bubbleButton.style.display === "none") {
       this.message.style.display = "none";
       this.bubbleButton.style.display = "block";
     }
-  }
+  };
 
-  closeBubbleButton() {
+  closeBubbleButton = (): void => {
     this.vibe();
     if (this.message.style.display === "none") {
       this.bubbleButton.style.display = "none";
       this.message.style.display = "block";
     }
-  }
+  };
 
-  destroy() {
-    this.hostElement.removeChild(this.bubble);
-  }
+  destroy = () => this.hostElement.removeChild(this.bubble);
 
-  private vibe() {
+  private vibe = (): void => {
     const right = () => {
       return new Promise((resolve) => {
         const right = this.bubble.classList.add("right-rotate");
@@ -125,5 +123,5 @@ export class Bubble implements Object {
     right()
       .then(() => left())
       .then(() => this.bubble.classList.remove("left-rotate"));
-  }
+  };
 }

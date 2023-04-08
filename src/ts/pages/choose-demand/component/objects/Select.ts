@@ -47,8 +47,6 @@ export class Select implements Object {
       this.inputContainer.appendChild(this.input[i]);
     }
 
-    console.log(demand.getDemandList);
-
     try {
       switch (truthDare.getChooseContent) {
         case "truth":

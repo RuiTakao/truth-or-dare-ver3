@@ -14,8 +14,8 @@ export class Input {
     this.input.classList.add("hidden");
   }
 
-  attach(): Promise<void> {
-    return new Promise((resolve) => {
+  attach = (): Promise<void> =>
+    new Promise((resolve) => {
       this.hostElement.appendChild(this.input);
       this.input.focus();
       const fadeIn: void = this.input.classList.add("fade-in");
@@ -25,20 +25,18 @@ export class Input {
       });
       resolve(fadeIn);
     });
-  }
 
-  slideOut(): Promise<void> {
-    return new Promise((resolve) => {
+  slideOut = (): Promise<void> =>
+    new Promise((resolve) => {
       const slideOut: void = this.input.classList.add("slide-out");
       this.input.addEventListener("animationend", () => {
         this.hostElement.removeChild(this.input);
       });
       resolve(slideOut);
     });
-  }
 
-  slideIn(): Promise<void> {
-    return new Promise((resolve) => {
+  slideIn = (): Promise<void> =>
+    new Promise((resolve) => {
       this.input.disabled = true;
       this.hostElement.appendChild(this.input);
       const slideIn: void = this.input.classList.add("slide-in");
@@ -50,9 +48,8 @@ export class Input {
       });
       resolve(slideIn);
     });
-  }
 
-  disable(): void {
+  disable = (): void => {
     this.input.disabled = true;
-  }
+  };
 }

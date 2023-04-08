@@ -9,9 +9,8 @@ export class SelectDemand {
     targetSelect.forEach((target) => {
       target.addEventListener("click", () => {
         targetSelect.forEach((target) => {
-          if (target.classList.contains("mark")) {
+          if (target.classList.contains("mark"))
             target.classList.remove("mark");
-          }
         });
         target.classList.add("mark");
         button.getButton.classList.remove("disable");

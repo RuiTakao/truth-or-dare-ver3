@@ -10,9 +10,7 @@ export class ShuffleUser {
         array.sort(() => 0.5 - Math.random());
         firstUser.setName(array[0]);
         secondUser.setName(array[1]);
-      } else {
-        throw new Error("名前が設定されていません");
-      }
+      } else throw new Error("名前が設定されていません");
     } catch (e) {
       console.error("エラー：", e);
     }

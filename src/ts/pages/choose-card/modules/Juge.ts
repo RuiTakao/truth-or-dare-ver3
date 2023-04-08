@@ -76,12 +76,9 @@ export class Juge {
             secondUser.getChooseCard,
             secondUser.getChooseCard.value
           );
-        } else {
+        } else
           throw new Error("名前、カードまたはカードの番号が選択されていません");
-        }
-      } else {
-        throw new Error("カードが選択されていません");
-      }
+      } else throw new Error("カードが選択されていません");
     } catch (e) {
       console.error("エラー：", e);
     }

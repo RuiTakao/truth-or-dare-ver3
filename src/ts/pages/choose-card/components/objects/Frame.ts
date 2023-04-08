@@ -32,9 +32,9 @@ export class Frame implements FrameObject {
     this.frame.append(this.bubbleFrame, this.cardListFrame);
   }
 
-  attach() {
+  attach = (): void => {
     this.hostElement.appendChild(this.frame);
-  }
+  };
 
   destroy(): void {}
 }

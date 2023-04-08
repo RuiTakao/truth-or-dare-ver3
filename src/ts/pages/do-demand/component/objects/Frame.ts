@@ -34,11 +34,11 @@ export class Frame implements FrameObject {
     this.frame.appendChild(this.buttonFrame);
   }
 
-  attach() {
+  attach = (): void => {
     this.hostElement.appendChild(this.frame);
-  }
+  };
 
-  destroy() {
+  destroy = (): void => {
     this.hostElement.removeChild(this.frame);
-  }
+  };
 }
