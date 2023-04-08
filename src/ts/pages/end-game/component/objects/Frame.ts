@@ -7,15 +7,15 @@ export class Frame implements FrameObject {
   private messageFrame: HTMLDivElement;
   private buttonFrame: HTMLDivElement;
 
-  get getFrame() {
+  get getFrame(): HTMLDivElement {
     return this.frame;
   }
 
-  get getMessageFrame() {
+  get getMessageFrame(): HTMLDivElement {
     return this.messageFrame;
   }
 
-  get getButtonFrame() {
+  get getButtonFrame(): HTMLDivElement {
     return this.buttonFrame;
   }
 

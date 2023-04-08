@@ -11,7 +11,7 @@ export class MakeLayer {
 
       hostElement.appendChild(layer);
 
-      const fadeIn = layer.classList.add("fade-in");
+      const fadeIn: void = layer.classList.add("fade-in");
       layer.addEventListener(
         "animationend",
         () => {

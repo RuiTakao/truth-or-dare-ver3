@@ -6,15 +6,15 @@ import { Message } from "./component/objects/Message";
 
 export class ChooseTruthDare {
   constructor(hostElement: HTMLDivElement) {
-    const frame = new Frame(hostElement);
-    const message = new Message(frame.getMessageFrame);
-    const button = new Button(frame.getButtonFrame);
-    const clickTruthButton = new ClickTruthButton(
+    const frame: Frame = new Frame(hostElement);
+    const message: Message = new Message(frame.getMessageFrame);
+    const button: Button = new Button(frame.getButtonFrame);
+    const clickTruthButton: ClickTruthButton = new ClickTruthButton(
       button.getTruthButton,
       frame,
       hostElement
     );
-    const clickDareButton = new ClickDareButton(
+    const clickDareButton: ClickDareButton = new ClickDareButton(
       button.getDarebutton,
       frame,
       hostElement

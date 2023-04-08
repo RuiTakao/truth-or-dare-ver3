@@ -8,7 +8,11 @@ export class DoDemand {
     const frame: Frame = new Frame(hostElement);
     const message: Message = new Message(frame.getMessageFrame);
     const button: Button = new Button(frame.getButtonFrame);
-    const clickButton = new ClickButton(button.getButton, frame, hostElement);
+    const clickButton: ClickButton = new ClickButton(
+      button.getButton,
+      frame,
+      hostElement
+    );
 
     frame.attach();
     message

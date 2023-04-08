@@ -7,7 +7,7 @@ export class ClickReturnChooseCardButton
   extends ClickButton
   implements ClickButtonEvent
 {
-  returnPage(): void {
+  returnPage = (): void => {
     new ChooseCard(hostElement);
-  }
+  };
 }

@@ -6,11 +6,11 @@ export class Button implements Object {
   private truthButton: HTMLButtonElement;
   private dareButton: HTMLButtonElement;
 
-  get getTruthButton() {
+  get getTruthButton(): HTMLButtonElement {
     return this.truthButton;
   }
 
-  get getDarebutton() {
+  get getDarebutton(): HTMLButtonElement {
     return this.dareButton;
   }
 
@@ -35,10 +35,10 @@ export class Button implements Object {
     this.buttonList.appendChild(this.dareButton);
   }
 
-  attach(): Promise<void> {
-    return new Promise((resolve) => {
+  attach = (): Promise<void> =>
+    new Promise((resolve) => {
       this.hostElement.appendChild(this.buttonList);
-      const fadeIn = this.buttonList.classList.add("fade-in");
+      const fadeIn: void = this.buttonList.classList.add("fade-in");
 
       this.buttonList.addEventListener(
         "animationend",
@@ -46,9 +46,7 @@ export class Button implements Object {
           this.buttonList.classList.remove("hidden");
           this.buttonList.classList.remove("fade-in");
         },
-        {
-          once: true,
-        }
+        { once: true }
       );
       setTimeout(() => {
         this.truthButton.classList.remove("disable");
@@ -56,5 +54,4 @@ export class Button implements Object {
         resolve(fadeIn);
       }, 1000);
     });
-  }
 }

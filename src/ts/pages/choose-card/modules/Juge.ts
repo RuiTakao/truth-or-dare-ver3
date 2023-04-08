@@ -6,7 +6,7 @@ export class Juge {
       name: string,
       chooseCard: HTMLLIElement,
       getNumber: number
-    ) => {
+    ): void => {
       winUser.setName(name);
       winUser.setChooseCard(chooseCard);
       winUser.setCardNumber(getNumber);
@@ -16,7 +16,7 @@ export class Juge {
       name: string,
       chooseCard: HTMLLIElement,
       getNumber: number
-    ) => {
+    ): void => {
       loseUser.setName(name);
       loseUser.setChooseCard(chooseCard);
       loseUser.setCardNumber(getNumber);
@@ -29,7 +29,7 @@ export class Juge {
       secondUserName: string,
       secondUserChooseCard: HTMLLIElement,
       secondUserGetNumber: number
-    ) => {
+    ): void => {
       if (firstUserGetNumber > secondUserGetNumber) {
         setWinUserProperty(
           firstUserName,

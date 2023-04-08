@@ -17,11 +17,11 @@ class Demand {
     return this.demandList;
   }
 
-  setDemand(demand: string) {
+  setDemand = (demand: string): void => {
     this.demand = demand;
-  }
+  };
 
   setDemandList() {}
 }
 
-export const demand = new Demand();
+export const demand: Demand = new Demand();

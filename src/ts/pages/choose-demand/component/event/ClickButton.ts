@@ -25,7 +25,7 @@ export class ClickButton implements ClickButtonEvent {
 
   onClick = (): void => this.target.addEventListener("click", this.targetEvent);
 
-  clickHandler(): void {
+  clickHandler = (): void =>
     this.select.getInput.forEach((target) => {
       if (target.checked) {
         this.target.removeEventListener("click", this.targetEvent);
@@ -37,5 +37,4 @@ export class ClickButton implements ClickButtonEvent {
         });
       }
     });
-  }
 }

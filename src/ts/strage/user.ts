@@ -15,17 +15,17 @@ export class User {
     return this.cardNumber;
   }
 
-  setName(name: string): void {
+  setName = (name: string): void => {
     this.name = name;
-  }
+  };
 
-  setChooseCard(chooseCard: HTMLLIElement): void {
+  setChooseCard = (chooseCard: HTMLLIElement): void => {
     this.chooseCard = chooseCard;
-  }
+  };
 
-  setCardNumber(cardNumber: number): void {
+  setCardNumber = (cardNumber: number): void => {
     this.cardNumber = cardNumber;
-  }
+  };
 }
 
 export const firstUser: User = new User();

@@ -5,9 +5,9 @@ class TruthDare {
     return this.chooseContent;
   }
 
-  setChooseContent(chooseContent: "truth" | "dare"): void {
+  setChooseContent = (chooseContent: "truth" | "dare"): void => {
     this.chooseContent = chooseContent;
-  }
+  };
 }
 
 export const truthDare: TruthDare = new TruthDare();

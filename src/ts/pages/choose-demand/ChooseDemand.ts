@@ -17,7 +17,7 @@ export class ChooseDemand {
       frame,
       hostElement
     );
-    const selectDemand = new SelectDemand(select, button);
+    const selectDemand: SelectDemand = new SelectDemand(select, button);
 
     frame.attach();
     message

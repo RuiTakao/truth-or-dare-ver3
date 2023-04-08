@@ -9,7 +9,7 @@ export class SetNumber {
 
   private setNumber = (): void => {
     this.target.forEach((target, index) => {
-      const num = document.createElement("p");
+      const num: HTMLParagraphElement = document.createElement("p");
       num.className = "num";
       num.innerText = this.numbers[index].toString();
 

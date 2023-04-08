@@ -37,12 +37,12 @@ export class Message implements Object {
     }
   }
 
-  attach(): Promise<void> {
-    return new Promise((resolve) => {
+  attach = (): Promise<void> =>
+    new Promise((resolve) => {
       this.hostElement.appendChild(this.message);
 
       new Promise((resolve) => {
-        const fadeIn = this.oneLineMessage.classList.add("fade-in");
+        const fadeIn: void = this.oneLineMessage.classList.add("fade-in");
         this.oneLineMessage.addEventListener(
           "animationend",
           () => {
@@ -53,7 +53,7 @@ export class Message implements Object {
         );
         setTimeout(() => resolve(fadeIn), 750);
       }).then(() => {
-        const fadeIn = this.twoLineMessage.classList.add("fade-in");
+        const fadeIn: void = this.twoLineMessage.classList.add("fade-in");
         this.twoLineMessage.addEventListener(
           "animationend",
           () => {
@@ -65,5 +65,4 @@ export class Message implements Object {
         setTimeout(() => resolve(fadeIn), 750);
       });
     });
-  }
 }

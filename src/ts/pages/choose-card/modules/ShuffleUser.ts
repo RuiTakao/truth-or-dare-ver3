@@ -4,8 +4,8 @@ export class ShuffleUser {
   constructor() {
     try {
       if (firstUser.getName !== null && secondUser.getName !== null) {
-        const firstUserName = firstUser.getName;
-        const secondUserName = secondUser.getName;
+        const firstUserName: string = firstUser.getName;
+        const secondUserName: string = secondUser.getName;
         const array: string[] = [firstUserName, secondUserName];
         array.sort(() => 0.5 - Math.random());
         firstUser.setName(array[0]);

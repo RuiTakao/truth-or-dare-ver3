@@ -6,15 +6,15 @@ export class Frame implements FrameObject {
   private bubbleFrame: HTMLDivElement;
   private cardListFrame: HTMLDivElement;
 
-  get getFrame() {
+  get getFrame(): HTMLDivElement {
     return this.frame;
   }
 
-  get getBubbleFrame() {
+  get getBubbleFrame(): HTMLDivElement {
     return this.bubbleFrame;
   }
 
-  get getCardListFrame() {
+  get getCardListFrame(): HTMLDivElement {
     return this.cardListFrame;
   }
 
@@ -36,5 +36,5 @@ export class Frame implements FrameObject {
     this.hostElement.appendChild(this.frame);
   };
 
-  destroy(): void {}
+  destroy = (): void => {};
 }

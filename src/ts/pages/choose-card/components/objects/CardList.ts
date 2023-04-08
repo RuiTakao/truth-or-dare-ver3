@@ -4,7 +4,7 @@ export class CardList implements Object {
   private hostElement: HTMLDivElement;
   private cardList: HTMLUListElement;
 
-  get getCardList() {
+  get getCardList(): HTMLUListElement {
     return this.cardList;
   }
 
@@ -14,7 +14,7 @@ export class CardList implements Object {
     this.cardList.className = "choose-card__card-list";
 
     for (let i = 1; i <= 13; i++) {
-      const card = document.createElement("li");
+      const card: HTMLLIElement = document.createElement("li");
       card.id = `card${i}`;
       card.className = "choose-card__card";
 
@@ -22,15 +22,15 @@ export class CardList implements Object {
     }
   }
 
-  attach = () => {
+  attach = (): Promise<void> => {
     const target: NodeListOf<HTMLLIElement> =
       this.cardList.querySelectorAll("li");
 
     const slideIn: (
       target: HTMLLIElement,
       className: string
-    ) => Promise<void> = (target: HTMLLIElement, className: string) => {
-      return new Promise((resolve) => {
+    ) => Promise<void> = (target: HTMLLIElement, className: string) =>
+      new Promise((resolve) => {
         const slide: void = target.classList.add(className);
 
         target.addEventListener(
@@ -43,7 +43,6 @@ export class CardList implements Object {
         );
         setTimeout(() => resolve(slide), 200);
       });
-    };
 
     target.forEach((target) => {
       target.classList.add("disable");
@@ -52,7 +51,7 @@ export class CardList implements Object {
 
     return new Promise((resolve) => {
       this.hostElement.appendChild(this.cardList);
-      const slideAll = slideIn(target[3], "slide-in__fourth-row")
+      const slideAll: Promise<void> = slideIn(target[3], "slide-in__fourth-row")
         .then(() => slideIn(target[7], "slide-in__fourth-row"))
         .then(() => slideIn(target[11], "slide-in__fourth-row"))
         .then(() => slideIn(target[12], "slide-in__fourth-row"))
@@ -79,11 +78,10 @@ export class CardList implements Object {
       .querySelectorAll("li")
       .forEach((target) => target.classList.remove("disable"));
 
-  removeMark = (): void => {
+  removeMark = (): void =>
     this.cardList.querySelectorAll("li").forEach((target) => {
       if (target.classList.contains("mark")) target.classList.remove("mark");
     });
-  };
 
   addMark = (target: HTMLLIElement): void => {
     this.cardList.querySelectorAll("li").forEach((target) => {
@@ -95,14 +93,14 @@ export class CardList implements Object {
   addCheck = (target: HTMLLIElement, name: string): void => {
     target.classList.add("check");
 
-    const checkMark = document.createElement("div");
+    const checkMark: HTMLDivElement = document.createElement("div");
     checkMark.className = "check-mark";
 
-    const nameFrontSide = document.createElement("p");
+    const nameFrontSide: HTMLParagraphElement = document.createElement("p");
     nameFrontSide.className = "name-front-side";
     nameFrontSide.innerText = name;
 
-    const nameBackSide = document.createElement("p");
+    const nameBackSide: HTMLParagraphElement = document.createElement("p");
     nameBackSide.className = "name-back-side";
     nameBackSide.innerText = name;
 
@@ -111,7 +109,7 @@ export class CardList implements Object {
     target.classList.remove("mark");
   };
 
-  turn() {
+  turn = (): Promise<void> => {
     try {
       if (
         firstUser.getChooseCard !== null &&
@@ -120,9 +118,9 @@ export class CardList implements Object {
         const firstUserChooseCard: HTMLLIElement = firstUser.getChooseCard;
         const secondUserChooseCard: HTMLLIElement = secondUser.getChooseCard;
 
-        const turnCard = (selectCard: HTMLLIElement) => {
-          return new Promise((resolve) => {
-            const turnCard = selectCard.classList.add("turn");
+        const turnCard = (selectCard: HTMLLIElement): Promise<void> =>
+          new Promise((resolve) => {
+            const turnCard: void = selectCard.classList.add("turn");
 
             selectCard.addEventListener("animationend", () => {
               selectCard.classList.add("open");
@@ -132,7 +130,6 @@ export class CardList implements Object {
 
             setTimeout(() => resolve(turnCard), 500);
           });
-        };
 
         return new Promise((resolve) =>
           resolve(
@@ -145,5 +142,5 @@ export class CardList implements Object {
     } catch (e) {
       return new Promise(() => console.error("エラー：", e));
     }
-  }
+  };
 }

@@ -13,7 +13,7 @@ export abstract class ClickButton {
         once: true,
       });
   
-    clickHandler(): void {
+    clickHandler = (): void => {
       this.frame.destroy();
       this.returnPage();
     }

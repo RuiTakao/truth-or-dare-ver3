@@ -15,10 +15,10 @@ export class ClickNoButton implements ClickButtonEvent {
   onClick = (): void =>
     this.target.addEventListener("click", this.clickHandler.bind(this));
 
-  clickHandler(): void {
+  clickHandler = (): void => {
     if (this.cardList.getCardList.querySelectorAll(".mark").length === 1) {
       this.cardList.removeMark();
       this.bubble.closeBubbleButton();
     }
-  }
+  };
 }

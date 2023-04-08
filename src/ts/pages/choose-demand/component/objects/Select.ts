@@ -18,6 +18,7 @@ export class Select implements Object {
   }
 
   constructor(hostElement: HTMLDivElement) {
+    
     this.hostElement = hostElement;
 
     this.selectBox = document.createElement("div");
@@ -46,7 +47,6 @@ export class Select implements Object {
       this.select.appendChild(option);
       this.inputContainer.appendChild(this.input[i]);
     }
-
     try {
       switch (truthDare.getChooseContent) {
         case "truth":
@@ -68,8 +68,8 @@ export class Select implements Object {
     this.selectBox.appendChild(this.select);
   }
 
-  attach(): Promise<void> {
-    return new Promise((resolve) => {
+  attach = (): Promise<void> =>
+    new Promise((resolve) => {
       this.hostElement.appendChild(this.selectBox);
       this.hostElement.appendChild(this.inputContainer);
       const fadeIn: void = this.selectBox.classList.add("fade-in");
@@ -85,5 +85,4 @@ export class Select implements Object {
         }
       );
     });
-  }
 }

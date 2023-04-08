@@ -12,22 +12,25 @@ export class ChooseCard {
   constructor(hostElement: HTMLDivElement) {
     try {
       if (firstUser.getName !== null) {
-        const firstUserName = firstUser.getName;
+        const firstUserName: string = firstUser.getName;
         new ShuffleUser();
         const frame: Frame = new Frame(hostElement);
         const bubble: Bubble = new Bubble(frame.getBubbleFrame, firstUserName);
         const cardList: CardList = new CardList(frame.getCardListFrame);
         const announce: Announce = new Announce(frame.getFrame, firstUserName);
         const clickCard: ClickCard = new ClickCard(cardList, bubble);
-        const clickNoButton = new ClickNoButton(bubble, cardList);
-        const clickYesButton = new MiddleClickYesButton(
+        const clickNoButton: ClickNoButton = new ClickNoButton(
+          bubble,
+          cardList
+        );
+        const clickYesButton: MiddleClickYesButton = new MiddleClickYesButton(
           bubble,
           cardList,
           clickCard,
           frame,
           hostElement
         );
-        
+
         frame.attach();
         cardList
           .attach()

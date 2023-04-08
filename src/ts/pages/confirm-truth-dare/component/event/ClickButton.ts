@@ -21,7 +21,7 @@ export class ClickButton implements ClickButtonEvent {
       once: true,
     });
 
-  clickHandler(): void {
+  clickHandler = (): void => {
     this.frame.getFrame.classList.add("fade-out");
     this.frame.getFrame.addEventListener(
       "animationend",
@@ -31,5 +31,5 @@ export class ClickButton implements ClickButtonEvent {
       },
       { once: true }
     );
-  }
+  };
 }

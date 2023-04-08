@@ -11,8 +11,8 @@ export class EnterName {
     const bubble: Bubble = new Bubble(frame.getBubbleFrame);
     const input: Input = new Input(frame.getInputFrame);
     const button: Button = new Button(frame.getButtonFrame);
-    const inputName = new InputName(input, button);
-    const clickButton = new MiddleClickButton(
+    const inputName: InputName = new InputName(input, button);
+    const clickButton: MiddleClickButton = new MiddleClickButton(
       button,
       bubble,
       input,

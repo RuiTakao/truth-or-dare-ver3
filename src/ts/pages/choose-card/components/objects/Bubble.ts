@@ -9,11 +9,11 @@ export class Bubble implements Object {
   private noButton: HTMLButtonElement;
   private userName: string;
 
-  get getYesButton() {
+  get getYesButton(): HTMLButtonElement {
     return this.yesButton;
   }
 
-  get getNoButton() {
+  get getNoButton(): HTMLButtonElement {
     return this.noButton;
   }
 
@@ -41,20 +41,20 @@ export class Bubble implements Object {
     this.noButton.className = "choose-card__bubble-button-no";
     this.noButton.innerText = "いいえ";
 
-    const body = document.createElement("div");
+    const body: HTMLDivElement = document.createElement("div");
     body.className = "choose-card__bubble-body";
 
-    const arrow = document.createElement("div");
+    const arrow: HTMLDivElement = document.createElement("div");
     arrow.className = "choose-card__bubble-arrow";
 
-    const arrowShadow = document.createElement("div");
+    const arrowShadow: HTMLDivElement = document.createElement("div");
     arrowShadow.className = "choose-card__bubble-arrow-shadow";
 
-    const buttonMessage = document.createElement("p");
+    const buttonMessage: HTMLParagraphElement = document.createElement("p");
     buttonMessage.className = "choose-card__bubble-button-message";
     buttonMessage.innerText = "これにしますか？";
 
-    const buttonList = document.createElement("div");
+    const buttonList: HTMLDivElement = document.createElement("div");
     buttonList.className = "choose-card__bubble-button-list";
 
     buttonList.append(this.yesButton, this.noButton);
@@ -70,8 +70,8 @@ export class Bubble implements Object {
     );
   }
 
-  attach = (): Promise<void> => {
-    return new Promise((resolve) => {
+  attach = (): Promise<void> =>
+    new Promise((resolve) => {
       this.message.innerText = `${this.userName}さんのターンです\nカードを選んでください`;
       this.hostElement.appendChild(this.bubble);
       const fadeIn = this.bubble.classList.add("fade-in");
@@ -85,7 +85,6 @@ export class Bubble implements Object {
       );
       setTimeout(() => resolve(fadeIn));
     });
-  };
 
   openBubbleButton = (): void => {
     this.vibe();
@@ -103,22 +102,23 @@ export class Bubble implements Object {
     }
   };
 
-  destroy = () => this.hostElement.removeChild(this.bubble);
+  destroy = (): void => {
+    this.hostElement.removeChild(this.bubble);
+  };
 
   private vibe = (): void => {
-    const right = () => {
-      return new Promise((resolve) => {
+    const right = (): Promise<void> =>
+      new Promise((resolve) => {
         const right = this.bubble.classList.add("right-rotate");
         setTimeout(() => resolve(right), 100);
       });
-    };
-    const left = () => {
-      return new Promise((resolve) => {
+
+    const left = (): Promise<void> =>
+      new Promise((resolve) => {
         this.bubble.classList.remove("right-rotate");
         const left = this.bubble.classList.add("left-rotate");
         setTimeout(() => resolve(left), 100);
       });
-    };
 
     right()
       .then(() => left())
