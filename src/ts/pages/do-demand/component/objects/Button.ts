@@ -1,4 +1,4 @@
-import { Object } from "../../../../interface/Object";
+import { Object } from "../../../../interface/object/Object";
 import { truthDare } from "../../../../strage/truthDare";
 
 export class Button implements Object {

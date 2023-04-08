@@ -1,11 +1,20 @@
+import { InputEvent } from "../../../../interface/event/InputEvent";
 import { Button } from "../objects/Button";
 import { Input } from "../objects/Input";
 
-export class InputName {
+export class InputName implements InputEvent {
+  target: HTMLInputElement;
+  private button: Button;
   constructor(input: Input, button: Button) {
-    input.getInput.addEventListener("input", () => {
-      if (input.getInput.value.length > 1) button.enable();
-      else button.disable();
-    });
+    this.target = input.getInput;
+    this.button = button;
   }
+
+  onInput = (): void =>
+    this.target.addEventListener("input", this.inputHandler.bind(this));
+
+  inputHandler = (): void => {
+    if (this.target.value.length > 1) this.button.enable();
+    else this.button.disable();
+  };
 }

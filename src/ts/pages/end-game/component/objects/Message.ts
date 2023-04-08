@@ -1,4 +1,4 @@
-import { Object } from "../../../../interface/Object";
+import { Object } from "../../../../interface/object/Object";
 
 export class Message implements Object {
   private hostElement: HTMLDivElement;

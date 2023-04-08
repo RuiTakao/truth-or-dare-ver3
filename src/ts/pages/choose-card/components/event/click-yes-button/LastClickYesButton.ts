@@ -1,4 +1,4 @@
-import { ClickButtonEvent } from "../../../../../interface/ClickButtonEvent";
+import { ClickButtonEvent } from "../../../../../interface/event/click-event/ClickButtonEvent";
 import { secondUser } from "../../../../../strage/user";
 import { MakeLayer } from "../../../../make-layer/MakeLayer";
 import { Juge } from "../../../modules/Juge";

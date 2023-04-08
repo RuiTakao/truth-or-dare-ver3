@@ -1,4 +1,4 @@
-import { ClickButtonEvent } from "../../../../../interface/ClickButtonEvent";
+import { ClickButtonEvent } from "../../../../../interface/event/click-event/ClickButtonEvent";
 import { firstUser, secondUser } from "../../../../../strage/user";
 import { Announce } from "../../objects/Announce";
 import { Bubble } from "../../objects/Bubble";

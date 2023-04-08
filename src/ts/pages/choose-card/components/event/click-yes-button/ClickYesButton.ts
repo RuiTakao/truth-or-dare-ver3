@@ -1,4 +1,4 @@
-import { ClickButtonEvent } from "../../../../../interface/ClickButtonEvent";
+import { ClickButtonEvent } from "../../../../../interface/event/click-event/ClickButtonEvent";
 import { Bubble } from "../../objects/Bubble";
 
 export abstract class ClickYesButton implements ClickButtonEvent {

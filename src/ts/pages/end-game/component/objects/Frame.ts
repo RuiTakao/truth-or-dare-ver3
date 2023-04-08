@@ -1,5 +1,5 @@
 import { hostElement as parentElement } from "../../../../app";
-import { FrameObject } from "../../../../interface/FrameObject";
+import { FrameObject } from "../../../../interface/object/FrameObject";
 
 export class Frame implements FrameObject {
   private hostElement: HTMLDivElement;

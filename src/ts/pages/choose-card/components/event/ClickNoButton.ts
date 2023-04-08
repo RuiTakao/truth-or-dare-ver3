@@ -1,4 +1,4 @@
-import { ClickButtonEvent } from "../../../../interface/ClickButtonEvent";
+import { ClickButtonEvent } from "../../../../interface/event/click-event/ClickButtonEvent";
 import { Bubble } from "../objects/Bubble";
 import { CardList } from "../objects/CardList";
 

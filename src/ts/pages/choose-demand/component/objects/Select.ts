@@ -1,4 +1,4 @@
-import { Object } from "../../../../interface/Object";
+import { Object } from "../../../../interface/object/Object";
 import { demand } from "../../../../strage/Demand";
 import { truthDare } from "../../../../strage/truthDare";
 

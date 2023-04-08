@@ -1,4 +1,4 @@
-import { ClickButton } from "./component/event/ClickButton";
+import { MiddleClickButton } from "./component/event/click-button/MiddleClickButton";
 import { InputName } from "./component/event/InputName";
 import { Bubble } from "./component/objects/Bubble";
 import { Button } from "./component/objects/Button";
@@ -11,14 +11,22 @@ export class EnterName {
     const bubble: Bubble = new Bubble(frame.getBubbleFrame);
     const input: Input = new Input(frame.getInputFrame);
     const button: Button = new Button(frame.getButtonFrame);
+    const inputName = new InputName(input, button);
+    const clickButton = new MiddleClickButton(
+      button,
+      bubble,
+      input,
+      frame,
+      hostElement
+    );
     frame.attach();
     input
       .attach()
       .then(() => button.attach())
       .then(() => bubble.attach())
       .then(() => {
-        new InputName(input, button);
-        new ClickButton(button, bubble, input, frame, hostElement);
+        inputName.onInput();
+        clickButton.onClick();
       });
   }
 }

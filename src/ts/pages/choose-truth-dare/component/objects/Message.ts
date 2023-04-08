@@ -1,4 +1,4 @@
-import { Object } from "../../../../interface/Object";
+import { Object } from "../../../../interface/object/Object";
 import { loseUser } from "../../../../strage/user";
 
 export class Message implements Object {
