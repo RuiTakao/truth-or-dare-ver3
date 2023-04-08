@@ -1,34 +1,41 @@
+import { ClickButtonEvent } from "../../../../interface/event/click-event/ClickButtonEvent";
 import { demand } from "../../../../strage/Demand";
 import { ConfirmDemand } from "../../../confirm-demand/ConfirmDemand";
-import { Button } from "../objects/Button";
 import { Frame } from "../objects/Frame";
 import { Select } from "../objects/Select";
 
-export class ClickButton {
+export class ClickButton implements ClickButtonEvent {
+  target: HTMLButtonElement;
+  private select: Select;
+  private frame: Frame;
+  private hostElement: HTMLDivElement;
+  private targetEvent: () => void;
   constructor(
-    button: Button,
+    target: HTMLButtonElement,
     select: Select,
     frame: Frame,
     hostElement: HTMLDivElement
   ) {
-    select.getInput.forEach((target) => {
-      button.getButton.addEventListener("click", () => {
-        if (target.checked) {
-          demand.setDemand(target.value);
-          console.log(demand);
-          frame.getFrame.classList.add("fade-out");
-          frame.getFrame.addEventListener(
-            "animationend",
-            () => {
-              frame.destroy();
-              new ConfirmDemand(hostElement);
-            },
-            {
-              once: true,
-            }
-          );
-        }
-      });
+    this.target = target;
+    this.select = select;
+    this.frame = frame;
+    this.hostElement = hostElement;
+    this.targetEvent = this.clickHandler.bind(this);
+  }
+
+  onClick = (): void => this.target.addEventListener("click", this.targetEvent);
+
+  clickHandler(): void {
+    this.select.getInput.forEach((target) => {
+      if (target.checked) {
+        this.target.removeEventListener("click", this.targetEvent);
+        demand.setDemand(target.value);
+        this.frame.getFrame.classList.add("fade-out");
+        this.frame.getFrame.addEventListener("animationend", () => {
+          this.frame.destroy();
+          new ConfirmDemand(this.hostElement);
+        });
+      }
     });
   }
 }

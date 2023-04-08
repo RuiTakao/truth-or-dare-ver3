@@ -1,13 +1,13 @@
 import { hostElement } from "../../../../app";
+import { ClickButtonEvent } from "../../../../interface/event/click-event/ClickButtonEvent";
 import { ChooseCard } from "../../../choose-card/ChooseCard";
-import { Button } from "../objects/Button";
-import { Frame } from "../objects/Frame";
+import { ClickButton } from "./ClickButton";
 
-export class ClickReturnChooseCardButton {
-  constructor(button: Button, frame: Frame) {
-    button.getReturnChooseCardButton.addEventListener("click", () => {
-      frame.destroy();
-      new ChooseCard(hostElement);
-    });
+export class ClickReturnChooseCardButton
+  extends ClickButton
+  implements ClickButtonEvent
+{
+  returnPage(): void {
+    new ChooseCard(hostElement);
   }
 }

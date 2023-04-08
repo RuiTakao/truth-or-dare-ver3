@@ -9,13 +9,22 @@ export class EndGame {
     const frame = new Frame(hostElement);
     const message = new Message(frame.getMessageFrame);
     const button = new Button(frame.getButtonFrame);
+    const clickReturnChooseCardButton = new ClickReturnChooseCardButton(
+      button.getReturnChooseCardButton,
+      frame
+    );
+    const clickReturnEnterNameButton = new ClickReturnEnterNameButton(
+      button.getReturnEnterNameButton,
+      frame
+    );
+
     frame.attach();
     message
       .attach()
       .then(() => button.attach())
       .then(() => {
-        new ClickReturnChooseCardButton(button, frame);
-        new ClickReturnEnterNameButton(button, frame);
+        clickReturnChooseCardButton.onClick();
+        clickReturnEnterNameButton.onClick();
       });
   }
 }

@@ -10,11 +10,9 @@ export abstract class ClickYesButton implements ClickButtonEvent {
   }
 
   onClick = (): void =>
-    this.target.addEventListener(
-      "click",
-      this.clickHandler.bind(this),
-      { once: true }
-    );
+    this.target.addEventListener("click", this.clickHandler.bind(this), {
+      once: true,
+    });
 
   abstract clickHandler(): void;
 }

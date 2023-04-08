@@ -9,13 +9,24 @@ export class ChooseTruthDare {
     const frame = new Frame(hostElement);
     const message = new Message(frame.getMessageFrame);
     const button = new Button(frame.getButtonFrame);
+    const clickTruthButton = new ClickTruthButton(
+      button.getTruthButton,
+      frame,
+      hostElement
+    );
+    const clickDareButton = new ClickDareButton(
+      button.getDarebutton,
+      frame,
+      hostElement
+    );
+
     frame.attach();
     message
       .attach()
       .then(() => button.attach())
       .then(() => {
-        new ClickTruthButton(button.getTruthButton, frame, hostElement);
-        new ClickDareButton(button.getDarebutton, frame, hostElement);
+        clickTruthButton.onClick();
+        clickDareButton.onClick();
       });
   }
 }

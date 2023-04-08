@@ -1,8 +1,9 @@
 import { ClickButtonEvent } from "../../../../interface/event/click-event/ClickButtonEvent";
-import { ChooseDemand } from "../../../choose-demand/ChooseDemand";
+import { truthDare } from "../../../../strage/truthDare";
+import { ConfirmTruthDare } from "../../../confirm-truth-dare/ConfirmTruthDare";
 import { Frame } from "../objects/Frame";
 
-export class ClickButton implements ClickButtonEvent {
+export abstract class ClickButton implements ClickButtonEvent {
   target: HTMLButtonElement;
   private frame: Frame;
   private hostElement: HTMLDivElement;
@@ -21,15 +22,14 @@ export class ClickButton implements ClickButtonEvent {
       once: true,
     });
 
-  clickHandler(): void {
+  clickHandler = (): void => {
+    truthDare.setChooseContent(this.truthDare());
     this.frame.getFrame.classList.add("fade-out");
-    this.frame.getFrame.addEventListener(
-      "animationend",
-      () => {
-        this.frame.destroy();
-        new ChooseDemand(this.hostElement);
-      },
-      { once: true }
-    );
-  }
+    this.frame.getFrame.addEventListener("animationend", () => {
+      this.frame.destroy();
+      new ConfirmTruthDare(this.hostElement);
+    });
+  };
+
+  abstract truthDare(): "truth" | "dare";
 }

@@ -8,10 +8,12 @@ export class ConfirmDemand {
     const frame: Frame = new Frame(hostElement);
     const message: Message = new Message(frame.getMessageFrame);
     const button: Button = new Button(frame.getButtonFrame);
+    const clickButton = new ClickButton(button.getButton, frame, hostElement);
+
     frame.attach();
     message
       .attach()
       .then(() => button.attach())
-      .then(() => new ClickButton(button, frame, hostElement));
+      .then(() => clickButton.onClick());
   }
 }

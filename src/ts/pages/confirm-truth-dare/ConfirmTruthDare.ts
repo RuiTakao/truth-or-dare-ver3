@@ -1,4 +1,4 @@
-import { ClickTruthButton } from "./component/event/ClickButton";
+import { ClickButton } from "./component/event/ClickButton";
 import { Button } from "./component/objects/Button";
 import { Frame } from "./component/objects/Frame";
 import { Message } from "./component/objects/Message";
@@ -8,10 +8,12 @@ export class ConfirmTruthDare {
     const frame: Frame = new Frame();
     const message: Message = new Message(frame.getMessageFrame);
     const button: Button = new Button(frame.getButtonFrame);
+    const clickButton = new ClickButton(button.getButton, frame, hostElement);
+    
     frame.attach();
     message
       .attach()
       .then(() => button.attach())
-      .then(() => new ClickTruthButton(button, frame, hostElement));
+      .then(() => clickButton.onClick());
   }
 }

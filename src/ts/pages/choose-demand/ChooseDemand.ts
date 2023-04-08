@@ -11,14 +11,22 @@ export class ChooseDemand {
     const message: Message = new Message(frame.getMessageFrame);
     const select: Select = new Select(frame.getSelectFrame);
     const button: Button = new Button(frame.getButtonFrame);
+    const clickButton = new ClickButton(
+      button.getButton,
+      select,
+      frame,
+      hostElement
+    );
+    const selectDemand = new SelectDemand(select, button);
+
     frame.attach();
     message
       .attach()
       .then(() => select.attach())
       .then(() => button.attach())
       .then(() => {
-        new SelectDemand(select, button);
-        new ClickButton(button, select, frame, hostElement);
+        selectDemand.onClick();
+        clickButton.onClick();
       });
   }
 }
