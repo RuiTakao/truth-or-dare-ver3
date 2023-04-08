@@ -1,8 +1,9 @@
+import { ClickCardEvent } from "../../../../interface/ClickCardEvent";
 import { Bubble } from "../objects/Bubble";
 import { CardList } from "../objects/CardList";
 
-export class ClickCard {
-  private target: NodeListOf<HTMLLIElement>;
+export class ClickCard implements ClickCardEvent {
+  target: NodeListOf<HTMLLIElement>;
   private targetEvent: (() => void)[];
   private cardList: CardList;
   private bubble: Bubble;
@@ -12,11 +13,9 @@ export class ClickCard {
     this.targetEvent = this.clickHandlerList();
     this.cardList = cardList;
     this.bubble = bubble;
-
-    this.configure();
   }
 
-  configure = (): void => {
+  onClick = (): void => {
     for (let i = 0; i < this.target.length; i++)
       this.target[i].addEventListener("click", this.targetEvent[i]);
   };

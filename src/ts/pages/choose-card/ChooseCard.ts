@@ -6,7 +6,7 @@ import { Announce } from "./components/objects/Announce";
 import { firstUser } from "../../strage/user";
 import { ClickCard } from "./components/event/ClickCard";
 import { ClickNoButton } from "./components/event/ClickNoButton";
-import { ClickYesButton } from "./components/event/ClickYesButton";
+import { MiddleClickYesButton } from "./components/event/click-yes-button/MiddleClickYesButton";
 
 export class ChooseCard {
   constructor(hostElement: HTMLDivElement) {
@@ -18,6 +18,16 @@ export class ChooseCard {
         const bubble: Bubble = new Bubble(frame.getBubbleFrame, firstUserName);
         const cardList: CardList = new CardList(frame.getCardListFrame);
         const announce: Announce = new Announce(frame.getFrame, firstUserName);
+        const clickCard: ClickCard = new ClickCard(cardList, bubble);
+        const clickNoButton = new ClickNoButton(bubble, cardList);
+        const clickYesButton = new MiddleClickYesButton(
+          bubble,
+          cardList,
+          clickCard,
+          frame,
+          hostElement
+        );
+        
         frame.attach();
         cardList
           .attach()
@@ -25,9 +35,9 @@ export class ChooseCard {
           .then(() => bubble.attach())
           .then(() => {
             cardList.enable();
-            const clickCard: ClickCard = new ClickCard(cardList, bubble);
-            new ClickNoButton(bubble, cardList);
-            new ClickYesButton(bubble, cardList, clickCard, frame, hostElement);
+            clickCard.onClick();
+            clickNoButton.onClick();
+            clickYesButton.onClick();
           });
       } else {
         throw new Error("名前が設定されていません");
